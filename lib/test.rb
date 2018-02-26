@@ -47,7 +47,6 @@ class Test
     @sum += 1 if choice == 2
   end
 
-
   def choice_validation
     choice = nil
     until [1,2,3].include?(choice)
@@ -56,7 +55,6 @@ class Test
     end
     choice
   end
-
 
   def next_question
     puts @questions[@current_question]
