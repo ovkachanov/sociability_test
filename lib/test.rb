@@ -42,20 +42,26 @@ class Test
     @current_question >= @questions.size
   end
 
-  def next_question
-    puts @questions[@current_question]
-    choice = nil
+  def calculation_amount(choice)
+    @sum += 2 if choice == 1
+    @sum += 1 if choice == 2
+  end
 
-    until choice == 1 || choice == 2 || choice == 3
+
+  def choice_validation
+    choice = nil
+    until [1,2,3].include?(choice)
       puts "Введите '1 - да', '2 - иногда' или '3 - нет' и нажмите Enter"
       choice = STDIN.gets.chomp.to_i
     end
+    choice
+  end
 
-    if choice == 1
-      @sum += 2
-    elsif choice == 2
-      @sum += 1
-    end
+
+  def next_question
+    puts @questions[@current_question]
+
+    calculation_amount(choice_validation)
 
     @current_question += 1
   end
