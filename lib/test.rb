@@ -1,5 +1,4 @@
 class Test
-
   attr_reader :sum
 
   def initialize
@@ -58,9 +57,7 @@ class Test
 
   def next_question
     puts @questions[@current_question]
-
     calculation_amount(choice_validation)
-
     @current_question += 1
   end
 end
